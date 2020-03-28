@@ -30,15 +30,19 @@ app.get('*', (req, res) => {
     const helmet = Helmet.renderStatic();
 
     const html = `
+<!DOCTYPE html>
 <html>
     <head>
+        <base href="/" />
         ${helmet.meta.toString()}
         ${helmet.title.toString()}
         ${styles}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
-    <body>
-        <div id="root">${content}</div>
+    <body style="margin: 0;">
+        <div id="root" style="width: 100%; height: 100%;">${content}</div>
         <script src="client_bundle.js"></script>
     </body>
 </html>
